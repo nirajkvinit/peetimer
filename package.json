@@ -1,0 +1,25 @@
+{
+  "name": "peetimer",
+  "version": "0.0.1",
+  "description": "Pee time calculator for schadokar",
+  "main": "peeTimer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nirajkvinit/peetimer.git"
+  },
+  "keywords": [
+    "peetimer"
+  ],
+  "author": "Niraj Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nirajkvinit/peetimer/issues"
+  },
+  "homepage": "https://github.com/nirajkvinit/peetimer",
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}
