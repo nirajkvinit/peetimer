@@ -1,3 +1,4 @@
+import moment from "moment";
 /**
  *
  * @param {*} effHours Effective Hours input as 'hh:mm'
@@ -7,9 +8,10 @@
  * @returns Returns an object containing remainingTime and endTime as string
  */
 const peeTimeCalculator = (effHours, lastCheckin, minEffHours = "7") => {
-  if (!effHours) throw "Effective hours input is not provided";
-  if (!lastCheckin) throw "Last check in time input is not provided";
-  if (!minEffHours) throw "Minimum Effective hours input is not provided";
+  if (!effHours) throw new Error("Effective hours input is not provided");
+  if (!lastCheckin) throw new Error("Last check in time input is not provided");
+  if (!minEffHours)
+    throw new Error("Minimum Effective hours input is not provided");
 
   let startTime = moment(lastCheckin, "hh:mma");
   if (effHours.includes(":")) {
@@ -32,11 +34,15 @@ const peeTimeCalculator = (effHours, lastCheckin, minEffHours = "7") => {
   }
 
   let remainingTime = endTime.diff(moment(), "minutes");
-  remainingTime =
-    Math.floor(remainingTime / 60) +
-    " hours " +
-    (remainingTime % 60) +
-    " minutes";
+
+  if (endTime >= 60) {
+    remainingTime =
+      Math.floor(remainingTime / 60) +
+      " hours " +
+      (remainingTime % 60) +
+      " minutes";
+  }
+
   return {
     remainingTime,
     endTime: endTime.format("hh:mm a")

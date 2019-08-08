@@ -1,6 +1,6 @@
 {
   "name": "peetimer",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Pee time calculator for schadokar",
   "main": "peeTimer.js",
   "scripts": {
